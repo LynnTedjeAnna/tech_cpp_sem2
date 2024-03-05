@@ -2,4 +2,4 @@
 // Created by Lynn Tedje Anna Meindertsma on 05/03/2024.
 //
 
-#include "animal.h"
+#include "animal.hpp"
