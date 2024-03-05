@@ -2,8 +2,8 @@
 // Created by Lynn Tedje Anna Meindertsma on 05/03/2024.
 //
 
-#ifndef DOG_H
-#define DOG_H
+#ifndef DOG_HPP
+#define DOG_HPP
 
 
 
@@ -13,4 +13,4 @@ class dog {
 
 
 
-#endif //DOG_H
+#endif //DOG_HPP
