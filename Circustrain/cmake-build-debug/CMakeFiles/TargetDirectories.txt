@@ -1,0 +1,3 @@
+/Users/lynn.meindertsma/Github/Circustrain/cmake-build-debug/CMakeFiles/Circustrain.dir
+/Users/lynn.meindertsma/Github/Circustrain/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lynn.meindertsma/Github/Circustrain/cmake-build-debug/CMakeFiles/rebuild_cache.dir
