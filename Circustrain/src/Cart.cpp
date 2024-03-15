@@ -1,80 +1,84 @@
-//
-// Created by Lynn Tedje Anna Meindertsma on 15 Mar 2024.
-//
-class Cart {
-public:
-    Cart() {}
+#include <iostream>
+#include "Cart.hpp"
 
-    bool add_animal(uint8_t animal) {
-        //if animal is smaller than danger it will not fit in the cart and so will be filterd out
-        if (animal < danger_level) {
-            return false;
-        }
-        // if animal is uneven it is a carnivor and so if there is a current carnivor in the cart will be filterd out
-        if (animal % 2) {
-            if (danger_level != 0){
-                return false;
-            }
-            danger_level = animal;
-        }
+Cart::Cart() : s_herbivore_count(0), s_carnivore_count(0), m_herbivore_count(0),
+               m_carnivore_count(0), b_herbivore_count(0), b_carnivore_count(0),
+               capacity(CAPACITY), danger_level(0) {}
 
-        //assign value of b/m/s to animal_value
-        uint8_t animal_value;
-        if (animal > 3) {
-            //value 5
-            animal_value = B_VALUE;
-        }
-        else if (animal > 1) {
-            //value 3
-            animal_value = M_VALUE;
-        }
-        else {
-            //value 1
-            animal_value = S_VALUE;
-        }
-        //if it is over capacity animal cannot fit in cartand so will be filterd out
-        if (animal_value > capacity) {
-            return false;
-        }
-        //new capacity value
-        capacity -= animal_value;
-
-        //add animlas to the cart
-        switch (animal) {
-            case S_HERBIVORE:
-                s_herbivore_count++;
-            break;
-            case S_CARNIVORE:
-                s_carnivore_count++;
-            break;
-            case M_HERBIVORE:
-                m_herbivore_count++;
-            break;
-            case M_CARNIVORE:
-                m_carnivore_count++;
-            break;
-            case B_HERBIVORE:
-                b_herbivore_count++;
-            break;
-            case B_CARNIVORE:
-                b_carnivore_count++;
-            break;
-        }
-        return true;
+bool Cart::add_animal(uint8_t animal) {
+    // If animal is smaller than danger_level, it will not fit in the cart and will be filtered out
+    if (animal < danger_level) {
+        return false;
     }
 
-private:
-    uint8_t s_herbivore_count = 0;
-    uint8_t s_carnivore_count = 0;
-    uint8_t m_herbivore_count = 0;
-    uint8_t m_carnivore_count = 0;
-    uint8_t b_herbivore_count = 0;
-    uint8_t b_carnivore_count = 0;
+    // If animal is uneven, it is a carnivore, and if there is a current carnivore in the cart, it will be filtered out
+    if (animal % 2) {
+        if (danger_level != 0) {
+            return false;
+        }
+        danger_level = animal;
+    }
 
-    uint8_t capacity = CAPACITY;
-    uint8_t danger_level = 0;
+    //assign value of b/m/s to animal_value
+    uint8_t animal_value;
+    if (animal > 3) {
+        //value 5
+        animal_value = B_VALUE;
+    }
+    else if (animal > 1) {
+        //value 3
+        animal_value = M_VALUE;
+    }
+    else {
+        //value 1
+        animal_value = S_VALUE;
+    }
 
-    // < ignore ( made by differnt student :) ) >
-    friend std::ostream& operator<<(std::ostream& os, Cart const& cart);
-    // </ ignore ( made by differnt student :) ) >
-};
+    // If it is over capacity, animal cannot fit in cart and will be filtered out
+    if (animal_value > capacity) {
+        return false;
+    }
+    //if it is over capacity animal cannot fit in cartand so will be filterd out
+    if (animal_value > capacity) {
+        return false;
+    }
+
+    //new capacity value
+    capacity -= animal_value;
+
+    //add animlas to the cart
+    switch (animal) {
+        case S_HERBIVORE:
+            s_herbivore_count++;
+        break;
+        case S_CARNIVORE:
+            s_carnivore_count++;
+        break;
+        case M_HERBIVORE:
+            m_herbivore_count++;
+        break;
+        case M_CARNIVORE:
+            m_carnivore_count++;
+        break;
+        case B_HERBIVORE:
+            b_herbivore_count++;
+        break;
+        case B_CARNIVORE:
+            b_carnivore_count++;
+        break;
+    }
+    return true;
+}
+
+// < ignore ( made by differnt student :) ) >
+// Overloaded operator<< function definition for printing Cart objects
+std::ostream& operator<<(std::ostream& os, Cart const& cart) {
+    os << "sh: " << (uint16_t)cart.s_herbivore_count << ", ";
+    os << "sc: " << (uint16_t)cart.s_carnivore_count << ", ";
+    os << "mh: " << (uint16_t)cart.m_herbivore_count << ", ";
+    os << "mc: " << (uint16_t)cart.m_carnivore_count << ", ";
+    os << "bh: " << (uint16_t)cart.b_herbivore_count << ", ";
+    os << "bc: " << (uint16_t)cart.b_carnivore_count << " || ";
+    os << "cap: " << (uint16_t)cart.capacity << ", ";
+    os << "dlvl: " << (uint16_t)cart.danger_level << "\n";
+}

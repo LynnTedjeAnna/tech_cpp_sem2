@@ -7,34 +7,56 @@ Train::Train(uint64_t animals[6]) {
     fit_animals(animals);
 }
 
+// Getter function definition to retrieve carts
+const std::vector<Cart>& Train::get_carts() const {
+    return carts; // Return the carts vector
+}
+
 void Train::fit_animals(uint64_t animals[6]) {
     // Carnivores have to go in separate carts no matter what
-    for (int i = B_CARNIVORE; i <= S_CARNIVORE; ++i) {
-        while (animals[i] > 0) {
-            Cart cart;
-            cart.add_animal(static_cast<AnimalType>(i));
-            carts.push_back(cart);
-            animals[i]--;
+    while (animals[B_CARNIVORE]) {
+        Cart cart;
+        cart.add_animal(B_CARNIVORE);
+        carts.push_back(cart);
+        animals[B_CARNIVORE]--;
+    }
+    while (animals[M_CARNIVORE]) {
+        Cart cart;
+        cart.add_animal(M_CARNIVORE);
+        carts.push_back(cart);
+        animals[M_CARNIVORE]--;
+    }
+    while (animals[S_CARNIVORE]) {
+        Cart cart;
+        cart.add_animal(S_CARNIVORE);
+        carts.push_back(cart);
+        animals[S_CARNIVORE	]--;
+    }
+
+    //dividing the herbivors over the excisiting carts
+    for (uint8_t i = 0; i < carts.size(); i++) {
+        while (animals[B_HERBIVORE] && carts[i].add_animal(B_HERBIVORE)) {
+            animals[B_HERBIVORE]--;
+        }
+        while (animals[M_HERBIVORE] && carts[i].add_animal(M_HERBIVORE)) {
+            animals[M_HERBIVORE]--;
+        }
+        while (animals[S_HERBIVORE] && carts[i].add_animal(S_HERBIVORE)){
+            animals[S_HERBIVORE]--;
         }
     }
 
-    // Distribute herbivores among existing carts
-    for (uint8_t i = 0; i < carts.size(); ++i) {
-        for (int j = B_HERBIVORE; j <= S_HERBIVORE; ++j) {
-            while (animals[j] > 0 && carts[i].add_animal(static_cast<AnimalType>(j))) {
-                animals[j]--;
-            }
+    while (animals[B_HERBIVORE] != 0 || animals[M_HERBIVORE] != 0 || animals[S_HERBIVORE] != 0) {
+        Cart cart;
+        while (animals[B_HERBIVORE] && cart.add_animal(B_HERBIVORE)) {
+            animals[B_HERBIVORE]--;
         }
-    }
-
-    // If there are remaining herbivores, create new carts
-    for (int i = B_HERBIVORE; i <= S_HERBIVORE; ++i) {
-        while (animals[i] > 0) {
-            Cart cart;
-            while (animals[i] > 0 && cart.add_animal(static_cast<AnimalType>(i))) {
-                animals[i]--;
-            }
-            carts.push_back(cart);
+        while (animals[M_HERBIVORE] && cart.add_animal(M_HERBIVORE)) {
+            animals[M_HERBIVORE]--;
         }
+        while (animals[S_HERBIVORE] && cart.add_animal(S_HERBIVORE)){
+            animals[S_HERBIVORE]--;
+        }
+        carts.push_back(cart);
     }
 }
