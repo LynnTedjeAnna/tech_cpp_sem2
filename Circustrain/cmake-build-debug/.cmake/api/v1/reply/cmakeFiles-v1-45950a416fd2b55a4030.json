@@ -1203,8 +1203,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/lynn.meindertsma/Github/Circustrain/cmake-build-debug",
-		"source" : "/Users/lynn.meindertsma/Github/Circustrain"
+		"build" : "/Users/lynn.meindertsma/Github/tech_cpp_sem2/Circustrain/cmake-build-debug",
+		"source" : "/Users/lynn.meindertsma/Github/tech_cpp_sem2/Circustrain"
 	},
 	"version" : 
 	{

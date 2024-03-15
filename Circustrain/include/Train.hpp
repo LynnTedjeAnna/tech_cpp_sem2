@@ -1,24 +1,29 @@
 //
 // Created by Lynn Tedje Anna Meindertsma on 15 Mar 2024.
 //
+// Train.hpp
+#ifndef TRAIN_HPP
+#define TRAIN_HPP
 
-#ifndef TRAIN_H
-#define TRAIN_H
-
-#include <iostream>
 #include <vector>
+#include "Cart.hpp"
+
+enum AnimalType {
+    B_CARNIVORE,
+    M_CARNIVORE,
+    S_CARNIVORE,
+    B_HERBIVORE,
+    M_HERBIVORE,
+    S_HERBIVORE
+};
 
 class Train {
-public:
-    // Constructor
-    Train(uint64_t animals[6]);
-    //public function to fit animals in carts
-    void fit_animals();
-
 private:
-    std::vector<Cart> carts;  // create a vector (array that can grow) for Carts
-    // < ignore ( made by differnt student :) ) >
-    friend std::ostream& operator<<(std::ostream& os, Train const& train);
-    // </ ignore ( made by differnt student :) ) >
+    std::vector<Cart> carts;
+
+public:
+    Train(uint64_t animals[6]);
+    void fit_animals(uint64_t animals[6]);
 };
-#endif //TRAIN_H
+
+#endif // TRAIN_HPP
