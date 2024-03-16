@@ -21,7 +21,7 @@ int main() {
     printf("\n");
 
     // Creating train object and fitting animals
-    Train train(animal_count);
+    Train train;
     train.fit_animals(animal_count);
 
     // Print the entire array
@@ -30,11 +30,8 @@ int main() {
         printf("%llu ", animal_count[i]);
     }
     // Print all carts
-    std::cout << "Train carts needed: " << std::endl;
-    const std::vector<Cart>& all_carts = train.get_carts();
-    for (const auto& cart : all_carts) {
-        std::cout << cart << std::endl;
-    }
+    std::cout << "\n\n" << train;
+    printf("cart count: %llu", train.get_length());
 
     return 0;
 }

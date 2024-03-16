@@ -29,14 +29,14 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Cart& cart);
 
 private:
-    uint8_t s_herbivore_count;
-    uint8_t s_carnivore_count;
-    uint8_t m_herbivore_count;
-    uint8_t m_carnivore_count;
-    uint8_t b_herbivore_count;
-    uint8_t b_carnivore_count;
+    uint8_t s_herbivore_count = 0;
+    uint8_t s_carnivore_count = 0;
+    uint8_t m_herbivore_count = 0;
+    uint8_t m_carnivore_count = 0;
+    uint8_t b_herbivore_count = 0;
+    uint8_t b_carnivore_count = 0;
 
-    uint8_t capacity;
-    uint8_t danger_level;
+    uint8_t capacity = CAPACITY;
+    uint8_t danger_level = 0;
 };
 #endif //CART_HPP

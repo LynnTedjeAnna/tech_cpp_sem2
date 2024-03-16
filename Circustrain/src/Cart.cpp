@@ -1,9 +1,7 @@
 #include <iostream>
 #include "Cart.hpp"
 
-Cart::Cart() : s_herbivore_count(0), s_carnivore_count(0), m_herbivore_count(0),
-               m_carnivore_count(0), b_herbivore_count(0), b_carnivore_count(0),
-               capacity(CAPACITY), danger_level(0) {}
+Cart::Cart() {}
 
 bool Cart::add_animal(uint8_t animal) {
     // If animal is smaller than danger_level, it will not fit in the cart and will be filtered out
@@ -35,10 +33,6 @@ bool Cart::add_animal(uint8_t animal) {
     }
 
     // If it is over capacity, animal cannot fit in cart and will be filtered out
-    if (animal_value > capacity) {
-        return false;
-    }
-    //if it is over capacity animal cannot fit in cartand so will be filterd out
     if (animal_value > capacity) {
         return false;
     }
@@ -81,4 +75,5 @@ std::ostream& operator<<(std::ostream& os, Cart const& cart) {
     os << "bc: " << (uint16_t)cart.b_carnivore_count << " || ";
     os << "cap: " << (uint16_t)cart.capacity << ", ";
     os << "dlvl: " << (uint16_t)cart.danger_level << "\n";
+    return os;
 }

@@ -3,13 +3,11 @@
 //
 #include "Train.hpp"
 
-Train::Train(uint64_t animals[6]) {
-    fit_animals(animals);
+Train::Train() {
 }
 
-// Getter function definition to retrieve carts
-const std::vector<Cart>& Train::get_carts() const {
-    return carts; // Return the carts vector
+uint64_t Train::get_length() {
+    return carts.size();
 }
 
 void Train::fit_animals(uint64_t animals[6]) {
@@ -59,4 +57,11 @@ void Train::fit_animals(uint64_t animals[6]) {
         }
         carts.push_back(cart);
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Train& train) {
+    for (Cart cart : train.carts) {
+        os << cart;
+    }
+    return os;
 }
