@@ -8,51 +8,51 @@
 
 #include "animal.h"
 
-/* pre    : animalArrayLength must be greater than numberOfAnimalsPresent
- * post   : animalArray is updated with the information from animalPtr, the
- * updated number of animals is passed in newNumberOfAnimalsPresent returns: 0
+/* pre    : animal_array_length must be greater than number_of_animals_present
+ * post   : animal_array is updated with the information from animal_ptr, the
+ * updated number of animals is passed in new_number_of_animals_present returns: 0
  * on success or -1 if an error occurs
  */
-int addAnimal(
-            const Animal* animalPtr, Animal* animalArray,
-            size_t animalArrayLength, size_t numberOfAnimalsPresent,
-            size_t* newNumberOfAnimalsPresent);
+int add_animal(
+            const Animal* animal_ptr, Animal* animal_array,
+            size_t animal_array_length, size_t number_of_animals_present,
+            size_t* new_number_of_animals_present);
 
 /* pre    :
- * post   : All animals with id 'animalId' are removed from AnimalArray, the
- * updated number of animals is passed in newNumberOfAnimalsPresent returns: The
+ * post   : All animals with id 'animal_id' are removed from AnimalArray, the
+ * updated number of animals is passed in new_number_of_animals_present returns: The
  * number of removed animals, 0 if no animals removed or -1 if an error occurs
  */
-int removeAnimal(
-            int animalId, Animal* animalArray,
-            size_t numberOfAnimalsPresent,
-            size_t* newNumberOfAnimalsPresent);
+int rmv_animal(
+            int animal_id, Animal* animal_array,
+            size_t number_of_animals_present,
+            size_t* new_number_of_animals_present);
 
 /* pre    :
- * post   : The first animal from animalArray with id 'animalId' is copied into
- * animalPtr returns: 1 on success, 0 if not found or -1 if an error occurs
+ * post   : The first animal from animal_array with id 'animal_id' is copied into
+ * animal_ptr returns: 1 on success, 0 if not found or -1 if an error occurs
  */
-int findAnimalById(
-            int animalId, const Animal* animalArray,
-            size_t numberOfAnimalsPresent, Animal* animalPtr);
+int find_animal_by_id(
+            int animal_id, const Animal* animal_array,
+            size_t number_of_animals_present, Animal* animal_ptr);
 
 /* pre    :
- * post   : All animals in animalArray are sorted by age
+ * post   : All animals in animal_array are sorted by age
  * returns: 0 on success or -1 if an error occurs
  */
-int sortAnimalsByAge(Animal* animalArray, size_t numberOfAnimalsPresent);
+int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present);
 
 /* pre    :
- * post   : All animals in animalArray are sorted by the year in which they were
+ * post   : All animals in animal_array are sorted by the year in which they were
  * found returns: 0 on success or -1 if an error occurs
  */
-int sortAnimalsByYearFound(
-            Animal* animalArray, size_t numberOfAnimalsPresent);
+int sort_animals_by_year_found(
+            Animal* animal_array, size_t number_of_animals_present);
 
 /* pre    :
- * post   : All animals in animalArray are sorted: first female animals and then
+ * post   : All animals in animal_array are sorted: first female animals and then
  * male animals returns: 0 on success or -1 if an error occurs
  */
-int sortAnimalsBySex(Animal* animalArray, size_t numberOfAnimalsPresent);
+int sort_animals_by_sex(Animal* animal_array, size_t number_of_animals_present);
 
 #endif //ADMINISTRATION_H

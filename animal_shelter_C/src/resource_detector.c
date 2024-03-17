@@ -24,16 +24,14 @@
 #define SET_MAGIC_CODE(addr,offset)     *((int*) ADDR(addr,offset)) = MAGIC_CODE
 #define MAGIC_CODE_OK(addr,offset)      (*((int*) ADDR(addr,offset)) == MAGIC_CODE)
 
-typedef struct
-{
+typedef struct{
     char*         addr;
     unsigned int  size;
     const char*   file;
     unsigned int  line;
 } mem_data;
 
-typedef struct
-{
+typedef struct{
     FILE*         addr;
     const char*   file_to_open;
     const char*   mode;
@@ -44,15 +42,13 @@ typedef struct
 static list_admin* memlist = NULL;
 static list_admin* filelist = NULL;
 
-static int memory_compare(const void* meminfo, const void* address, size_t size)
-{
+static int memory_compare(const void* meminfo, const void* address, size_t size){
     mem_data* info = (mem_data*)meminfo;
     char*     addr = (char*)address;
     return info->addr - addr;
 }
 
-static int file_compare(const void* fileinfo, const void* address, size_t size)
-{
+static int file_compare(const void* fileinfo, const void* address, size_t size){
     file_data* info = (file_data*)fileinfo;
     FILE*      addr = (FILE*)address;
     return info->addr - addr;
@@ -60,8 +56,7 @@ static int file_compare(const void* fileinfo, const void* address, size_t size)
 
 
 static void
-invalidate (mem_data* info)
-{
+invalidate (mem_data* info){
     char* user_addr;
     char* raw_addr;
     unsigned int size;
@@ -70,8 +65,7 @@ invalidate (mem_data* info)
     size = info->size;
     raw_addr = ADDR (user_addr, -sizeof(int));
 
-    if (!MAGIC_CODE_OK(user_addr, -sizeof(int)) || !MAGIC_CODE_OK(user_addr, size))
-    {
+    if (!MAGIC_CODE_OK(user_addr, -sizeof(int)) || !MAGIC_CODE_OK(user_addr, size)){
         fprintf (stderr, "ERROR: addr %p (%s, line %d): out-of-bound access\n", (void*)user_addr, info->file, info->line);
     }
 
@@ -83,19 +77,15 @@ invalidate (mem_data* info)
  * replacement of malloc
  */
 extern void*
-xmalloc (unsigned int size, const char* file, unsigned int line)
-{
+xmalloc (unsigned int size, const char* file, unsigned int line){
     char* raw_addr = malloc (size + (2 * sizeof(int)));
     char* user_addr;
     mem_data info = {NULL, 0, NULL, 0};
 
-    if (raw_addr == NULL)
-    {
+    if (raw_addr == NULL){
         fprintf (stderr, "ERROR: malloc failed for %d bytes (%s, line %d)\n", size, file, line);
         return (NULL);
-    }
-    else
-    {
+    }else{
         user_addr = ADDR (raw_addr, sizeof (int));
         SET_MAGIC_CODE (raw_addr, 0);
         SET_MAGIC_CODE (user_addr, size);
@@ -113,8 +103,7 @@ xmalloc (unsigned int size, const char* file, unsigned int line)
  * replacement of free
  */
 extern void
-xfree (void* addr, const char* filename, int linenr)
-{
+xfree (void* addr, const char* filename, int linenr){
     char* user_addr = (char*) addr;
     mem_data* info = NULL;
 
@@ -122,8 +111,7 @@ xfree (void* addr, const char* filename, int linenr)
     int index = list_index_of_special(memlist, addr, memory_compare);
     info = list_get_element(memlist, index);
 
-    if (info == NULL)
-    {
+    if (info == NULL){
         fprintf (stderr, "ERROR: trying to free memory that was not malloc-ed (addr %p) in %s : %d\n", (void*)user_addr, filename, linenr);
         return;
     }
@@ -133,32 +121,26 @@ xfree (void* addr, const char* filename, int linenr)
 }
 
 static void
-print_empty_lines(int n)
-{
+print_empty_lines(int n){
     int i;
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++){
         fprintf(stderr, "\n");
     }
 }
 
-static void set_colour_red(void)
-{
+static void set_colour_red(void){
     fprintf(stderr, "\033[10;31m");
 }
-static void set_colour_gray(void)
-{
+static void set_colour_gray(void){
     fprintf(stderr, "\033[22;37m");
 }
 static void
-print_line(void)
-{
+print_line(void){
     fprintf (stderr, "---------------------------------------------------------\n");
 }
 
 static void
-print_not_good(void)
-{
+print_not_good(void){
     set_colour_gray();
     print_line();
     set_colour_red();
@@ -177,27 +159,23 @@ print_not_good(void)
  * writes all info of the unallocated memory
  */
 static void
-resource_detection (void)
-{
+resource_detection (void){
     time_t now = time (NULL);
 
     int forgotten_frees = list_get_nr_elements(memlist);
     int nr_files_open = list_get_nr_elements(filelist);
 
-    if ((forgotten_frees > 0) || (nr_files_open > 0))
-    {
+    if ((forgotten_frees > 0) || (nr_files_open > 0)){
         print_empty_lines(15);
     }
 
-    if (forgotten_frees > 0)
-    {
+    if (forgotten_frees > 0){
         mem_data* info = NULL;
         print_line();
         fprintf (stderr, "Memory Leak Summary, generated: %s", ctime (&now));
         print_not_good();
         set_colour_red();
-        while((info = list_get_element(memlist, 0)) != NULL)
-        {
+        while((info = list_get_element(memlist, 0)) != NULL){
             fprintf (stderr, "forgot to free address: %p (%d bytes) that was allocated in: %s on line: %d\n",
                     (void*)info->addr, info->size, info->file, info->line);
             list_delete_item(memlist, 0);
@@ -207,15 +185,13 @@ resource_detection (void)
         print_empty_lines(1);
     }
 
-    if (nr_files_open > 0)
-    {
+    if (nr_files_open > 0){
         file_data* info = NULL;
         print_line();
         fprintf (stderr, "File Management Summary, generated: %s", ctime (&now));
         print_not_good();
         set_colour_red();
-        while((info = list_get_element(filelist, 0)) != NULL)
-        {
+        while((info = list_get_element(filelist, 0)) != NULL){
             fprintf (stderr, "forgot to close file: %s (ptr %p, mode \"%s\") that was opened from: %s on line: %d\n",
                     info->file_to_open, (void*)(info->addr), info->mode, info->file, info->line);
             list_delete_item(filelist, 0);
@@ -224,8 +200,7 @@ resource_detection (void)
         print_line();
         print_empty_lines(1);
     }
-    if ((forgotten_frees == 0) && (nr_files_open == 0))
-    {
+    if ((forgotten_frees == 0) && (nr_files_open == 0)){
         printf ("\nResource checks: OK\n\n");
     }
 
@@ -234,12 +209,10 @@ resource_detection (void)
 }
 
 extern FILE*
-xfopen (const char* file_to_open, const char* mode, const char* filename, int linenr)
-{
+xfopen (const char* file_to_open, const char* mode, const char* filename, int linenr){
     file_data info = {0};
     info.addr = fopen(file_to_open, mode);
-    if (info.addr != NULL)
-    {
+    if (info.addr != NULL){
         info.file_to_open = file_to_open;
         info.mode = mode;
         info.file = filename;
@@ -250,11 +223,9 @@ xfopen (const char* file_to_open, const char* mode, const char* filename, int li
 }
 
 extern int
-xfclose(FILE* fptr, const char* filename, int linenr)
-{
+xfclose(FILE* fptr, const char* filename, int linenr){
     int index = list_index_of_special(filelist, fptr, file_compare);
-    if (index < 0)
-    {
+    if (index < 0){
         fprintf (stderr, "ERROR: trying to close an unopened file in %s on line number %d.\n", filename, linenr);
         return -1;
     }
@@ -263,8 +234,7 @@ xfclose(FILE* fptr, const char* filename, int linenr)
 }
 
 extern int
-main (int argc, char* argv[])
-{
+main (int argc, char* argv[]){
     atexit (resource_detection);
     memlist = construct_list(sizeof(mem_data));
     filelist = construct_list(sizeof(file_data));

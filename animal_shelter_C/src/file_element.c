@@ -6,35 +6,35 @@
 // leave resource_detector.h as last include!
 #include "resource_detector.h"
 
-int readAnimals(const char* filename, Animal* animalPtr, size_t nrAnimals)
+int read_animals(const char* filename, Animal* animal_ptr, size_t nr_animals)
 {
     return -1;
 }
 
-int writeAnimals(const char* filename, const Animal* animalPtr, size_t nrAnimals)
+int write_animals(const char* filename, const Animal* animal_ptr, size_t nr_animals)
 {
     return -1;
 }
 
-int getNrAnimalsInFile(const char* filename, size_t* nrAnimals)
+int get_nr_animal_in_file(const char* filename, size_t* nr_animals)
 {
     return -1;
 }
 
 int readAnimalFromFile(
-            const char* filename, size_t filePosition, Animal* animalPtr)
+            const char* filename, size_t file_position, Animal* animal_ptr)
 {
     return -1;
 }
 
 int writeAnimalToFile(
-            const char* filename, size_t filePosition, const Animal* animalPtr)
+            const char* filename, size_t file_position, const Animal* animal_ptr)
 {
     return -1;
 }
 
 int renameAnimalInFile(
-            const char* filename, size_t filePosition, const char* animalSurname)
+            const char* filename, size_t file_position, const char* animal_surname)
 {
     return -1;
 }

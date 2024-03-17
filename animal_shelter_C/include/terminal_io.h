@@ -19,17 +19,17 @@ typedef enum
     MO_LOAD,
     MO_SAVE,
     MO_QUIT
-} MenuOptions;
+} menu_options;
 
 
-int getInt(const char* message);
-int getLimitedInt(const char* message, const char* items[], int nrItems);
-Species getSpecies(void);
-Sex getSex(void);
-MenuOptions getMenuChoice(void);
-Date getDate(const char* message);
-void getStr(const char* message, char* str, int maxLength);
-void printAnimals(const Animal* animals, int nrAnimals);
+int get_int(const char* message);
+int get_limited_int(const char* message, const char* items[], int nrItems);
+Species get_species(void);
+Sex get_sex(void);
+menu_options get_menu_choice(void);
+Date get_date(const char* message);
+void getStr(const char* message, char* str, int max_length);
+void print_animals(const Animal* animals, int nr_animals);
 
 
 #endif //TERMINAL_IO_H

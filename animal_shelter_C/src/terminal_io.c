@@ -11,14 +11,17 @@
 
 #define MAX_STRLEN 80
 
-static const char* SpeciesNames[] = { "Cat", "Dog", "Guinea pig", "Parrot" };
-static const size_t NrSpeciesNames =
-            sizeof(SpeciesNames) / sizeof(SpeciesNames[0]);
+static const char* species_names[] = {
+    "Cat", "Dog", "Guinea pig", "Parrot"
+};
+static const size_t nr_species_names = sizeof(species_names) / sizeof(species_names[0]);
 
-static const char* SexNames[] = { "Male", "Female" };
-static const size_t NrSexNames = sizeof(SexNames) / sizeof(SexNames[0]);
+static const char* sex_names[] = {
+    "Male", "Female"
+};
+static const size_t nr_sex_names = sizeof(sex_names) / sizeof(sex_names[0]);
 
-static const char* MenuStrings[] = {
+static const char* menu_strings[] = {
     "Show animals",
     "Add animal",
     "Remove animal",
@@ -30,103 +33,88 @@ static const char* MenuStrings[] = {
     "Save administration to disk",
     "Quit"
 };
-static const size_t NrMenuStrings =
-            sizeof(MenuStrings) / sizeof(MenuStrings[0]);
+static const size_t nr_menu_strings =
+            sizeof(menu_strings) / sizeof(menu_strings[0]);
 
-int getInt(const char* message)
-{
+int get_int(const char* message){
     char line[MAX_STRLEN];
     char* result = NULL;
     int value = -1;
 
     printf("%s", message);
     result = fgets(line, sizeof(line), stdin);
-    if (result != NULL)
-    {
+    if (result != NULL){
         sscanf(result, "%d", &value);
     }
 
     return value;
 }
 
-int getLimitedInt(const char* message, const char* items[], int nrItems)
-{
+int get_limited_int(const char* message, const char* items[], int nrItems){
     int choice = -1;
-    do
-    {
-        for (int i = 0; i < nrItems; i++)
-        {
+    do{
+        for (int i = 0; i < nrItems; i++){
             printf("  [%d] %s\n", i, items[i]);
         }
-        choice = getInt(message);
+        choice = get_int(message);
     } while (choice < 0 || choice >= nrItems);
 
     return choice;
 }
 
-Species getSpecies(void)
+Species get_species(void)
 {
-    return (Species)getLimitedInt("enter species: ", SpeciesNames, NrSpeciesNames);
+    return (Species)get_limited_int("enter species: ", species_names, nr_species_names);
 }
 
-Sex getSex(void)
+Sex get_sex(void)
 {
-    return (Sex)getLimitedInt("enter sex: ", SexNames, NrSexNames);
+    return (Sex)get_limited_int("enter sex: ", sex_names, nr_sex_names);
 }
 
-MenuOptions getMenuChoice(void)
+menu_options get_menu_choice(void)
 {
-    return (MenuOptions)getLimitedInt("choice: ", MenuStrings, NrMenuStrings);
+    return (menu_options)get_limited_int("choice: ", menu_strings, nr_menu_strings);
 }
 
-Date getDate(const char* message)
+Date get_date(const char* message)
 {
     Date temp = { 0, 0, 0 };
     printf("%s", message);
-    temp.Day = getInt("  enter day: ");
-    temp.Month = getInt("  enter month: ");
-    temp.Year = getInt("  enter year: ");
+    temp.Day = get_int("  enter day: ");
+    temp.Month = get_int("  enter month: ");
+    temp.Year = get_int("  enter year: ");
     return temp;
 }
 
-void getStr(const char* message, char* str, int maxLength)
-{
-    char line[maxLength];
+void getStr(const char* message, char* str, int max_length){
+    char line[max_length];
     char* result = NULL;
 
     printf("%s", message);
     result = fgets(line, sizeof(line), stdin);
-    if (result != NULL)
-    {
+    if (result != NULL){
         if (result[strlen(result) - 1] == '\n')
         {
             result[strlen(result) - 1] = '\0';
         }
-        strncpy(str, result, maxLength);
+        strncpy(str, result, max_length);
     }
 }
 
-void printAnimals(const Animal* animals, int nrAnimals)
-{
-    if (animals != NULL)
-    {
-        if (nrAnimals <= 0)
-        {
-            printf("\nAnimal array is empty, or nrAnimals is less than 0\n\n");
-        }
-        else
-        {
-            for (int i = 0; i < nrAnimals; i++)
-            {
+void print_animals(const Animal* animals, int nr_animals){
+    if (animals != NULL){
+        if (nr_animals <= 0){
+            printf("\nAnimal array is empty, or nr_animals is less than 0\n\n");
+        }else{
+            for (int i = 0; i < nr_animals; i++){
                 printf("\nAnimal %d:\n", i + 1);
                 printf("Id:     %d\n", animals[i].Id);
-                printf("Species:  %s\n", SpeciesNames[animals[i].Species]);
-                printf("Sex:      %s\n", SexNames[animals[i].Sex]);
+                printf("Species:  %s\n", species_names[animals[i].Species]);
+                printf("Sex:      %s\n", sex_names[animals[i].Sex]);
                 printf("Age:      %d\n", animals[i].Age);
                 printf("Animal was found:\n");
-                printf("  at date:     %02d-%02d-%02d\n",
-                       animals[i].DateFound.Day, animals[i].DateFound.Month,
-                       animals[i].DateFound.Year);
+                printf("  at date:     %02d-%02d-%02d\n", animals[i].DateFound.Day, animals[i].DateFound.Month, animals[i].DateFound.Year);
             }
         }
     }

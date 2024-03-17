@@ -11,42 +11,42 @@
 // leave resource_detector.h as last include!
 #include "resource_detector.h"
 
-int addAnimal(
-            const Animal* animalPtr, Animal* animalArray,
-            size_t animalArrayLength, size_t numberOfAnimalsPresent,
-            size_t* newNumberOfAnimalsPresent)
+int add_animal(
+            const Animal* animal_ptr, Animal* animal_array,
+            size_t animal_array_length, size_t number_of_animals_present,
+            size_t* new_number_of_animals_present)
 {
     return -1;
 }
 
-int removeAnimal(
-            int animalId, Animal* animalArray,
-            size_t numberOfAnimalsPresent,
-            size_t* newNumberOfAnimalsPresent)
+int rmv_animal(
+            int animal_id, Animal* animal_array,
+            size_t number_of_animals_present,
+            size_t* new_number_of_animals_present)
 {
     return -1;
 }
 
-int findAnimalById(
-            int animalId, const Animal* animalArray,
-            size_t numberOfAnimalsPresent, Animal* animalPtr)
+int find_animal_by_id(
+            int animal_id, const Animal* animal_array,
+            size_t number_of_animals_present, Animal* animal_ptr)
 {
     return -1;
 }
 
 /*-------------------------------------------------------------------------------*/
-int sortAnimalsByAge(Animal* animalArray, size_t numberOfAnimalsPresent)
+int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present)
 {
     return 0;
 }
 
-int sortAnimalsByYearFound(
-            Animal* animalArray, size_t numberOfAnimalsPresent)
+int sort_animals_by_year_found(
+            Animal* animal_array, size_t number_of_animals_present)
 {
     return 0;
 }
 
-int sortAnimalsBySex(Animal* animalArray, size_t numberOfAnimalsPresent)
+int sort_animals_by_sex(Animal* animal_array, size_t number_of_animals_present)
 {
     return 0;
 }

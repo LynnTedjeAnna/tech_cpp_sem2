@@ -9,7 +9,7 @@ typedef enum
 {
     Cat,
     Dog,
-    GuineaPig,
+    guienea_pig,
     Parrot
 } Species;
 
