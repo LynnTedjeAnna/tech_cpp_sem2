@@ -1,0 +1,3 @@
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/cmake-build-debug/CMakeFiles/animal_shelter_C.dir
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
