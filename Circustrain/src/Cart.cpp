@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Cart.hpp"
 
+//defines the default constructor for the Cart class
 Cart::Cart() {}
 
 bool Cart::add_animal(uint8_t animal) {
@@ -9,7 +10,8 @@ bool Cart::add_animal(uint8_t animal) {
         return false;
     }
 
-    // If animal is uneven, it is a carnivore, and if there is a current carnivore in the cart, it will be filtered out
+    // If animal is uneven, it is a carnivore, and if there is a current carnivore in the cart,
+    // it will be filtered out
     if (animal % 2) {
         if (danger_level != 0) {
             return false;

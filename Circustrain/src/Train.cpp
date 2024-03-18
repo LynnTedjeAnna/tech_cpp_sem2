@@ -3,8 +3,8 @@
 //
 #include "Train.hpp"
 
-Train::Train() {
-}
+//defines the default constructor for the Train class
+Train::Train() {}
 
 uint64_t Train::get_length() {
     return carts.size();
@@ -43,7 +43,7 @@ void Train::fit_animals(uint64_t animals[6]) {
             animals[S_HERBIVORE]--;
         }
     }
-
+    //dividing herbivors over new carts
     while (animals[B_HERBIVORE] != 0 || animals[M_HERBIVORE] != 0 || animals[S_HERBIVORE] != 0) {
         Cart cart;
         while (animals[B_HERBIVORE] && cart.add_animal(B_HERBIVORE)) {
@@ -59,6 +59,8 @@ void Train::fit_animals(uint64_t animals[6]) {
     }
 }
 
+
+//printing carts
 std::ostream& operator<<(std::ostream& os, const Train& train) {
     for (Cart cart : train.carts) {
         os << cart;

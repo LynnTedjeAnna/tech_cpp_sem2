@@ -13,6 +13,7 @@
 #define B_HERBIVORE 4
 #define B_CARNIVORE 5
 
+
 #define S_VALUE 1
 #define M_VALUE 3
 #define B_VALUE 5
