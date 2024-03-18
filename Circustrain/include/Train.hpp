@@ -13,10 +13,10 @@ public:
     // Constructor
     Train();
     // Function to fit animals into carts
-    void fit_animals(uint64_t animals[6]);
+    void fit_animals(int animals[6]);
 
     // Getter function to retrieve carts
-    uint64_t get_length(); // Returns a constant reference to the carts vector
+    int get_length(); // Returns a constant reference to the carts vector
 
     // Friend function declaration to overload the << operator for Cart objects
     friend std::ostream& operator<<(std::ostream& os, const Train& train);

@@ -6,11 +6,11 @@
 //defines the default constructor for the Train class
 Train::Train() {}
 
-uint64_t Train::get_length() {
+int Train::get_length() {
     return carts.size();
 }
 
-void Train::fit_animals(uint64_t animals[6]) {
+void Train::fit_animals(int animals[6]) {
     // Carnivores have to go in separate carts no matter what
     while (animals[B_CARNIVORE]) {
         Cart cart;

@@ -3,7 +3,7 @@
 #include "Train.hpp"
 #include "Cart.hpp"
 
-uint64_t animal_count[6];
+int animal_count[6];
 
 int main() {
     printf("How many small herbivors: ");

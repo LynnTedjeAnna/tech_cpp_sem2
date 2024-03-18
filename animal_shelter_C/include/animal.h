@@ -7,7 +7,7 @@
 
 typedef enum
 {
-    Cat,
+    Cat = 0,
     Dog,
     guienea_pig,
     Parrot
@@ -15,7 +15,7 @@ typedef enum
 
 typedef enum
 {
-    Male,
+    Male = 0,
     Female
 } Sex;
 
