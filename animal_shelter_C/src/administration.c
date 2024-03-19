@@ -9,7 +9,6 @@ int add_animal(
             size_t* new_number_of_animals_present){
     // Check if there is space in the animal_array
     if(animal_array_length <= number_of_animals_present) {
-        fprintf(stderr, "Error: Animal array is full\n");
         return -1;
     }
     //Copy the new Animal structure to the next available position in the animal_array.
@@ -21,13 +20,6 @@ int add_animal(
     return 0;
 }
 
-/*
-It should take parameters such as the animal ID to be removed, the array of animals,
-the number of animals present, and possibly other necessary parameters.
-
-Remove the animal from the array. This typically involves shifting
-all subsequent elements in the array to fill the gap left by the removed animal.
-*/
 int rmv_animal(
             int animal_id, Animal* animal_array,
             size_t number_of_animals_present,
@@ -41,8 +33,11 @@ int rmv_animal(
             break;
         }
     }
-    //Remove the animal from the array
-    
+    // Copy next element value to current element en remove the animal from the array consequently
+    for(i = index; i < number_of_animals_present; i++)
+    {
+        animal_array[i] = animal_array[i + 1];
+    }
     //Update the count of animals present if
     number_of_animals_present --;
     //Update the pointer value for the number of animals present.
@@ -54,6 +49,15 @@ int rmv_animal(
 int find_animal_by_id(
             int animal_id, const Animal* animal_array,
             size_t number_of_animals_present, Animal* animal_ptr){
+    //Iterate through the array of animals to find the animal with the specified ID.
+    for(i = 0; i < number_of_animals_present; i++) {
+        //If the animal is found, copy its data into the provided Animal structure pointer.
+        if (animal_array[i] == animal_id) {
+            *animal_ptr = animal_array[i];
+            return 0;
+        }
+    }
+    //Return a value indicating that the animal was not found
     return -1;
 }
 
