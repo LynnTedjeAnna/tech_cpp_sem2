@@ -56,13 +56,6 @@ build CMakeFiles/animal_shelter_C.dir/src/main.c.o: C_COMPILER__animal_shelter_C
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
 
-build CMakeFiles/animal_shelter_C.dir/src/administration.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/administration.c || cmake_object_order_depends_target_animal_shelter_C
-  DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/administration.c.o.d
-  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
-  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
-  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
-
 build CMakeFiles/animal_shelter_C.dir/src/list.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/list.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/list.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
@@ -99,7 +92,7 @@ build CMakeFiles/animal_shelter_C.dir/src/file_element.c.o: C_COMPILER__animal_s
 #############################################
 # Link the executable animal_shelter_C
 
-build animal_shelter_C: C_EXECUTABLE_LINKER__animal_shelter_C_Debug CMakeFiles/animal_shelter_C.dir/src/main.c.o CMakeFiles/animal_shelter_C.dir/src/administration.c.o CMakeFiles/animal_shelter_C.dir/src/list.c.o CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o CMakeFiles/animal_shelter_C.dir/src/file_element.c.o
+build animal_shelter_C: C_EXECUTABLE_LINKER__animal_shelter_C_Debug CMakeFiles/animal_shelter_C.dir/src/main.c.o CMakeFiles/animal_shelter_C.dir/src/list.c.o CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o CMakeFiles/animal_shelter_C.dir/src/file_element.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   POST_BUILD = :
