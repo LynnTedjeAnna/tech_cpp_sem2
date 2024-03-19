@@ -25,16 +25,19 @@ int rmv_animal(
             size_t number_of_animals_present,
             size_t* new_number_of_animals_present){
     //Iterate through the array of animals to find the animal with the specified ID
-    int index;
+    int index = -1;
     for (int i = 0; i < number_of_animals_present; ++i) {
         //Find the animal in the array
-        if (animal_array[i] == animal_id) {
+        if (animal_array[i].Id == animal_id) {
             index = i;
             break;
         }
     }
+    if (index == -1) {
+        return -1;
+    }
     // Copy next element value to current element en remove the animal from the array consequently
-    for(i = index; i < number_of_animals_present; i++)
+    for(int i = index; i < number_of_animals_present; i++)
     {
         animal_array[i] = animal_array[i + 1];
     }
@@ -50,9 +53,9 @@ int find_animal_by_id(
             int animal_id, const Animal* animal_array,
             size_t number_of_animals_present, Animal* animal_ptr){
     //Iterate through the array of animals to find the animal with the specified ID.
-    for(i = 0; i < number_of_animals_present; i++) {
+    for(int i = 0; i < number_of_animals_present; i++) {
         //If the animal is found, copy its data into the provided Animal structure pointer.
-        if (animal_array[i] == animal_id) {
+        if (animal_array[i].Id == animal_id) {
             *animal_ptr = animal_array[i];
             return 0;
         }
@@ -62,6 +65,23 @@ int find_animal_by_id(
 }
 
 /*-------------------------------------------------------------------------------*/
+/*
+*For sorting animals by age: Define a comparison function that compares the ages of two animals.
+*For sorting animals by year found: Define a comparison function that compares the years in which two animals were found.
+*For sorting animals by sex: Define a comparison function that compares the sexes of two animals.
+*
+*Implement a generic sorting function that accepts a function pointer to the appropriate comparison function:
+*Define a function that takes an array of animals, the number of animals, and a function pointer to the comparison function.
+*Inside this function, use a sorting algorithm (e.g., bubble sort, insertion sort, or quicksort) to sort the array of animals based on the specified criterion.
+*
+*Call the generic sorting function for each sorting criterion:
+*In your animal.c module, call the generic sorting function for each sorting criterion (sortAnimalsByAge, sortAnimalsByYearFound, and sortAnimalsBySex).
+*Pass the appropriate comparison function as a function pointer to the generic sorting function for each sorting operation.
+*
+*Test each sorting function:
+*After implementing each sorting function, ensure that they correctly sort the array of animals according to the specified criterion.
+*Test the sorting functions with different arrays of animals and verify that the sorting results are as expected.
+*/
 int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present){
     return 0;
 }

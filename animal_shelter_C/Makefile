@@ -1,5 +1,5 @@
-PROD_DIR := ./product
-SHARED_DIR := ./shared
+PROD_DIR := ./src
+SHARED_DIR := ./include
 TEST_DIR := ./test
 UNITY_FOLDER :=./Unity
 RES_DIR := ./ResourceDetector
