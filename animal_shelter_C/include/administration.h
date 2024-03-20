@@ -8,6 +8,8 @@
 
 #include "animal.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
 
 /* pre    : animal_array_length must be greater than number_of_animals_present
  * post   : animal_array is updated with the information from animal_ptr, the

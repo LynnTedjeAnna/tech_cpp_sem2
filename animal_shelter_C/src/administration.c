@@ -65,32 +65,66 @@ int find_animal_by_id(
 }
 
 /*-------------------------------------------------------------------------------*/
-/*
-*For sorting animals by age: Define a comparison function that compares the ages of two animals.
-*For sorting animals by year found: Define a comparison function that compares the years in which two animals were found.
-*For sorting animals by sex: Define a comparison function that compares the sexes of two animals.
-*
-*Implement a generic sorting function that accepts a function pointer to the appropriate comparison function:
-*Define a function that takes an array of animals, the number of animals, and a function pointer to the comparison function.
-*Inside this function, use a sorting algorithm (e.g., bubble sort, insertion sort, or quicksort) to sort the array of animals based on the specified criterion.
-*
-*Call the generic sorting function for each sorting criterion:
-*In your animal.c module, call the generic sorting function for each sorting criterion (sortAnimalsByAge, sortAnimalsByYearFound, and sortAnimalsBySex).
-*Pass the appropriate comparison function as a function pointer to the generic sorting function for each sorting operation.
-*
-*Test each sorting function:
-*After implementing each sorting function, ensure that they correctly sort the array of animals according to the specified criterion.
-*Test the sorting functions with different arrays of animals and verify that the sorting results are as expected.
-*/
-int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present){
-    return 0;
+
+typedef bool (animal_compare)(Animal* A, Animal* B);
+
+static void sort_animals(Animal* animal_array, size_t number_of_animals_present, animal_compare compare){
+    Animal temp;
+    // Iterate through each animal in the array
+    for(int i = 0; i < number_of_animals_present; i++) {
+        // Compare each animal's ... with the age of subsequent animals
+        for(int j = i + 1; j < number_of_animals_present; j++) {
+            // If the ... of the current animal is greater than the ... of the next animal, swap them
+            if(compare(&animal_array[i], &animal_array[j])) {
+                temp = animal_array[i];
+                animal_array[i] = animal_array[j];
+                animal_array[j] = temp;
+            }
+        }
+    }
 }
 
-int sort_animals_by_year_found(
-            Animal* animal_array, size_t number_of_animals_present){
-    return 0;
+bool compare_animals_by_age(Animal* A, Animal* B) {
+    return A->Age > B->Age;    //arrows are pointer to a more specific data piece, in animal (animal -> Age)
+}
+bool compare_animals_by_date_found(Animal* A, Animal* B) {
+    return A->DateFound.Year > B->DateFound.Year;    //arrows are pointer to a more specific data piece, in animal (animal -> DateFound)
+}
+bool compare_animals_by_sex(Animal* A, Animal* B) {
+    return A->Sex < B->Sex;    //arrows are pointer to a more specific data piece, in animal (animal -> Sex)
 }
 
+// Function to sort animals in the animal_array by their ages in ascending order
+int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present) {
+    sort_animals(animal_array, number_of_animals_present, compare_animals_by_age);
+    // Print the sorted array of animals (for debugging or verification purposes)
+    printf("After Sorting:\n");
+    for(int i = 0; i < number_of_animals_present; i++) {
+        printf("%d ", animal_array[i].Age);
+    }
+    return 0; // Return 0 indicating successful sorting
+}
+
+// Function to sort animals in the animal_array by their year found in ascending order
+int sort_animals_by_year_found(Animal* animal_array, size_t number_of_animals_present) {
+    sort_animals(animal_array, number_of_animals_present, compare_animals_by_date_found);
+    // Print the sorted array of animals (for debugging or verification purposes)
+    printf("After Sorting:\n");
+    for(int i = 0; i < number_of_animals_present; i++) {
+        printf("%d ", animal_array[i].DateFound.Year);
+    }
+    return 0; // Return 0 indicating successful sorting
+}
+
+// Function to sort animals in the animal_array by their sex in female first
+//female = 0 male = 1
 int sort_animals_by_sex(Animal* animal_array, size_t number_of_animals_present){
-    return 0;
+    sort_animals(animal_array, number_of_animals_present, compare_animals_by_sex);
+
+    // Print the sorted array of animals (for debugging or verification purposes)
+    printf("After Sorting:\n");
+    for(int i = 0; i < number_of_animals_present; i++) {
+        printf("%d ", animal_array[i].Sex);
+    }
+    return 0; // Return 0 indicating successful sorting}
 }
