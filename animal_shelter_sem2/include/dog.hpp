@@ -4,6 +4,7 @@
 
 #ifndef DOG_HPP
 #define DOG_HPP
+#include "simple_date.hpp"
 
 
 

@@ -6,13 +6,14 @@
 #define CAT_HPP
 #include <iostream>
 #include "animal.hpp"
+#include "simple_date.hpp"
+
 
 class Cat : public Animal {
 public:
-    std::string bad_habits;
-
-    Cat(uint64_t tag_ID, Date date, std::string name, std::string bad_habits) {
-        // TODO
+    //test
+    Cat(uint64_t tag_ID, Simple_Date date, std::string name, std::string bad_habits) : Animal(tag_ID, date, name) {
+        this->bad_habits = bad_habits;
     }
 
     std::string to_string() {
@@ -20,7 +21,7 @@ public:
         return "";
     }
 private:
-    std::string name;
+    std::string bad_habits;
 };
 
 #endif //CAT_HPP

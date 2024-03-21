@@ -37,7 +37,7 @@ int rmv_animal(
         return -1;
     }
     // Copy next element value to current element en remove the animal from the array consequently
-    for(int i = index; i < number_of_animals_present; i++)
+    for(int i = index; i < number_of_animals_present-1; i++)
     {
         animal_array[i] = animal_array[i + 1];
     }

@@ -34,7 +34,7 @@ static void rmv_animal_admin(Animal* animals, size_t* nr_animals){
     int animal_id = get_int("enter animal id: ");
 
     int result = rmv_animal(animal_id, animals, *nr_animals, nr_animals);
-    printf("%d animals removed (-1 is error)\n", result);
+    printf("removed animal with code: %d", result);
 }
 
 static void find_print_animal(const Animal* animals, size_t nr_animals){
@@ -43,9 +43,9 @@ static void find_print_animal(const Animal* animals, size_t nr_animals){
     int animal_id = get_int("enter animal id: ");
 
     int result = find_animal_by_id(animal_id, animals, nr_animals, &animal);
-    if (result == 1){
+    if (result == 0){
         print_animals(&animal, 1);
-    }else if (result == 0){
+    }else if (result == -1){
         printf("Find animal result: animal_id %d not found\n", animal_id);
     }else{
         printf("Find animal result: fail\n");

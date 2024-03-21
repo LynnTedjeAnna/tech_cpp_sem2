@@ -2,7 +2,7 @@
 // Created by Lynn Tedje Anna Meindertsma on 06 Mar 2024.
 //
 #include <iostream>
-#include "simple_data.hpp"
+#include "simple_date.hpp"
 /// <summary>
 /// A simple class to store dates.
 /// This class is called SimpleDate because it's a simplyfied version of
@@ -10,27 +10,26 @@
 /// and makes it easy to work with dates only.
 
 // Constructor implementation.
-Simple_date::Simple_date(int day, int month, int year)
-    : day(day), month(month), year(year)
+Simple_Date::Simple_Date(uint8_t day, uint8_t month, uint16_t year) {
+    this->day = day;
+    this->month = month;
+    this->year = year;
+}
 
 // Getter implementations.
-int Simple_date::get_day() const
-{
+uint8_t Simple_Date::get_day() {
     return day;
 }
 
-int Simple_date::get_month() const
-{
+uint8_t Simple_Date::get_month() {
     return month;
 }
 
-int Simple_date::get_year() const
-{
+uint16_t Simple_Date::get_year() {
     return year;
 }
 
 // ToString method implementation.
-std::string Simple_date::to_string() const
-{
+std::string Simple_Date::to_string() {
     return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
 }

@@ -7,6 +7,9 @@
 
 int main()
 {
-    std::cout << "Hello, World!" << &s << std::endl;
+    std::cout << "Hello, World!" << std::endl;
+    ///example
+    Cat cat(0,Simple_Date(1, 1, 1), " ", "");
+
     return 0;
 }
