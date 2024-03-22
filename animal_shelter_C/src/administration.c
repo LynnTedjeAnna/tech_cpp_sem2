@@ -7,8 +7,8 @@ int add_animal(
             const Animal* animal_ptr, Animal* animal_array,
             size_t animal_array_length, size_t number_of_animals_present,
             size_t* new_number_of_animals_present){
-    // Check if there is space in the animal_array
-    if(animal_array_length <= number_of_animals_present) {
+    // checking if the memory allocation is successful
+    if (!animal_ptr || !animal_array || !new_number_of_animals_present) {
         return -1;
     }
     //Copy the new Animal structure to the next available position in the animal_array.
@@ -24,6 +24,10 @@ int rmv_animal(
             int animal_id, Animal* animal_array,
             size_t number_of_animals_present,
             size_t* new_number_of_animals_present){
+    // checking if the memory allocation is successful
+    if (!animal_array || !new_number_of_animals_present){
+        return -1;
+    }
     //Iterate through the array of animals to find the animal with the specified ID
     int index = -1;
     for (int i = 0; i < number_of_animals_present; ++i) {
@@ -52,6 +56,10 @@ int rmv_animal(
 int find_animal_by_id(
             int animal_id, const Animal* animal_array,
             size_t number_of_animals_present, Animal* animal_ptr){
+    // checking if the memory allocation is successful
+    if (!animal_array || !animal_ptr){
+        return -1;
+    }
     //Iterate through the array of animals to find the animal with the specified ID.
     for(int i = 0; i < number_of_animals_present; i++) {
         //If the animal is found, copy its data into the provided Animal structure pointer.
@@ -66,9 +74,14 @@ int find_animal_by_id(
 
 /*-------------------------------------------------------------------------------*/
 
-typedef bool (animal_compare)(Animal* A, Animal* B);
+typedef bool (*animal_compare)(Animal* A, Animal* B);
 
 static void sort_animals(Animal* animal_array, size_t number_of_animals_present, animal_compare compare){
+    // checking if the memory allocation is successful
+    //todo: idk if correct exit(0)
+    if (!animal_array){
+        exit(0);
+    }
     Animal temp;
     // Iterate through each animal in the array
     for(int i = 0; i < number_of_animals_present; i++) {
@@ -84,18 +97,27 @@ static void sort_animals(Animal* animal_array, size_t number_of_animals_present,
     }
 }
 
+// Comparison function to compare animals by age
 bool compare_animals_by_age(Animal* A, Animal* B) {
-    return A->Age > B->Age;    //arrows are pointer to a more specific data piece, in animal (animal -> Age)
+    return A->Age > B->Age;
 }
+
+// Comparison function to compare animals by date found (year)
 bool compare_animals_by_date_found(Animal* A, Animal* B) {
-    return A->DateFound.Year > B->DateFound.Year;    //arrows are pointer to a more specific data piece, in animal (animal -> DateFound)
+    return A->DateFound.Year > B->DateFound.Year;
 }
+
+// Comparison function to compare animals by sex
 bool compare_animals_by_sex(Animal* A, Animal* B) {
-    return A->Sex < B->Sex;    //arrows are pointer to a more specific data piece, in animal (animal -> Sex)
+    return A->Sex < B->Sex;
 }
 
 // Function to sort animals in the animal_array by their ages in ascending order
 int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present) {
+    // checking if the memory allocation is successful
+    if (!animal_array){
+        return -1;
+    }
     sort_animals(animal_array, number_of_animals_present, compare_animals_by_age);
     // Print the sorted array of animals (for debugging or verification purposes)
     printf("After Sorting:\n");
@@ -107,6 +129,10 @@ int sort_animals_by_age(Animal* animal_array, size_t number_of_animals_present) 
 
 // Function to sort animals in the animal_array by their year found in ascending order
 int sort_animals_by_year_found(Animal* animal_array, size_t number_of_animals_present) {
+    // checking if the memory allocation is successful
+    if (!animal_array){
+        return -1;
+    }
     sort_animals(animal_array, number_of_animals_present, compare_animals_by_date_found);
     // Print the sorted array of animals (for debugging or verification purposes)
     printf("After Sorting:\n");
@@ -119,6 +145,10 @@ int sort_animals_by_year_found(Animal* animal_array, size_t number_of_animals_pr
 // Function to sort animals in the animal_array by their sex in female first
 //female = 0 male = 1
 int sort_animals_by_sex(Animal* animal_array, size_t number_of_animals_present){
+    // checking if the memory allocation is successful
+    if (!animal_array){
+        return -1;
+    }
     sort_animals(animal_array, number_of_animals_present, compare_animals_by_sex);
 
     // Print the sorted array of animals (for debugging or verification purposes)
