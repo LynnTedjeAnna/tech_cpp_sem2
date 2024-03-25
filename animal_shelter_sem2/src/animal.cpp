@@ -4,14 +4,6 @@
 #include <iostream>
 #include "animal.hpp"
 
-/// <summary>
-/// Creates an animal.
-/// </summary>
-/// <param name="chipRegistrationNumber">The chipnumber of the animal.
-///                                      Must be unique. Must be zero or greater than zero.</param>
-/// <param name="dateOfBirth">The date of birth of the animal.</param>
-/// <param name="name">The name of the animal.</param>
-
 //constructor
 Animal::Animal(uint32_t chip_reg_number, Simple_Date date_of_birth, std::string name) {
     this->chip_reg_number = chip_reg_number;
@@ -19,7 +11,7 @@ Animal::Animal(uint32_t chip_reg_number, Simple_Date date_of_birth, std::string 
     this->name =            name;
     this->reserved =        false;
 }
-
+// Getter methods
 uint32_t Animal::get_chip_reg_number() const {
     return this->chip_reg_number;
 }
@@ -37,9 +29,9 @@ bool Animal::get_reserved() const {
 }
 
 std::string Animal::to_string() {
-    // TODO
-    return "";
+    std::string is_reserved_string = this->reserved ? "reserved" : "not reserved";
+    return std::to_string(this->chip_reg_number) + ", " +
+           this->date_of_birth.to_string() + ", " +
+           this->name + ", " +
+           is_reserved_string;
 }
-
-/// <summary>
-/// Class representing an animal in the shelter.

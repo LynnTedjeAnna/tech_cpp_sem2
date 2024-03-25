@@ -52,37 +52,72 @@ build cmake_object_order_depends_target_animal_shelter_C: phony || CMakeFiles/an
 build CMakeFiles/animal_shelter_C.dir/src/main.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/main.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/main.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
 
 build CMakeFiles/animal_shelter_C.dir/src/list.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/list.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/list.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
 
 build CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/resource_detector.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
 
 build CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/terminal_io.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
 
 build CMakeFiles/animal_shelter_C.dir/src/file_element.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/src/file_element.c || cmake_object_order_depends_target_animal_shelter_C
   DEP_FILE = CMakeFiles/animal_shelter_C.dir/src/file_element.c.o.d
   FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
-  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/src
+
+build CMakeFiles/animal_shelter_C.dir/test/administration_test.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test/administration_test.c || cmake_object_order_depends_target_animal_shelter_C
+  DEP_FILE = CMakeFiles/animal_shelter_C.dir/test/administration_test.c.o.d
+  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
+  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/test
+
+build CMakeFiles/animal_shelter_C.dir/test/file_element_test.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test/file_element_test.c || cmake_object_order_depends_target_animal_shelter_C
+  DEP_FILE = CMakeFiles/animal_shelter_C.dir/test/file_element_test.c.o.d
+  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
+  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/test
+
+build CMakeFiles/animal_shelter_C.dir/test/main.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test/main.c || cmake_object_order_depends_target_animal_shelter_C
+  DEP_FILE = CMakeFiles/animal_shelter_C.dir/test/main.c.o.d
+  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
+  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/test
+
+build CMakeFiles/animal_shelter_C.dir/Unity/unity.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity/unity.c || cmake_object_order_depends_target_animal_shelter_C
+  DEP_FILE = CMakeFiles/animal_shelter_C.dir/Unity/unity.c.o.d
+  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
+  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/Unity
+
+build CMakeFiles/animal_shelter_C.dir/Unity/unity_test_module.c.o: C_COMPILER__animal_shelter_C_unscanned_Debug /Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity/unity_test_module.c || cmake_object_order_depends_target_animal_shelter_C
+  DEP_FILE = CMakeFiles/animal_shelter_C.dir/Unity/unity_test_module.c.o.d
+  FLAGS = -g -std=gnu2x -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3 -fcolor-diagnostics
+  INCLUDES = -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/include -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/test -I/Users/lynn.meindertsma/Github/tech_cpp_sem2/animal_shelter_C/Unity
+  OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/animal_shelter_C.dir/Unity
 
 
 # =============================================================================
@@ -92,7 +127,7 @@ build CMakeFiles/animal_shelter_C.dir/src/file_element.c.o: C_COMPILER__animal_s
 #############################################
 # Link the executable animal_shelter_C
 
-build animal_shelter_C: C_EXECUTABLE_LINKER__animal_shelter_C_Debug CMakeFiles/animal_shelter_C.dir/src/main.c.o CMakeFiles/animal_shelter_C.dir/src/list.c.o CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o CMakeFiles/animal_shelter_C.dir/src/file_element.c.o
+build animal_shelter_C: C_EXECUTABLE_LINKER__animal_shelter_C_Debug CMakeFiles/animal_shelter_C.dir/src/main.c.o CMakeFiles/animal_shelter_C.dir/src/list.c.o CMakeFiles/animal_shelter_C.dir/src/resource_detector.c.o CMakeFiles/animal_shelter_C.dir/src/terminal_io.c.o CMakeFiles/animal_shelter_C.dir/src/file_element.c.o CMakeFiles/animal_shelter_C.dir/test/administration_test.c.o CMakeFiles/animal_shelter_C.dir/test/file_element_test.c.o CMakeFiles/animal_shelter_C.dir/test/main.c.o CMakeFiles/animal_shelter_C.dir/Unity/unity.c.o CMakeFiles/animal_shelter_C.dir/Unity/unity_test_module.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -mmacosx-version-min=14.3
   OBJECT_DIR = CMakeFiles/animal_shelter_C.dir
   POST_BUILD = :

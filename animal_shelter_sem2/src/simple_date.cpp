@@ -29,6 +29,10 @@ uint16_t Simple_Date::get_year() {
     return year;
 }
 
+bool Simple_Date::is_valid() {
+    return this->day && this->month && this->year;
+}
+
 // ToString method implementation.
 std::string Simple_Date::to_string() {
     return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);

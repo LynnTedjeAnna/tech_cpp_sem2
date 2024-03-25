@@ -10,11 +10,13 @@ set(SOURCE
     src/dog.cpp
     src/shelter.cpp
     src/simple_date.cpp
+    src/administrationForm.cpp
         include/animal.hpp
         include/cat.hpp
         include/dog.hpp
         include/shelter.hpp
         include/simple_date.hpp
+        include/administrationForm.hpp
 )
 include_directories(include)
 

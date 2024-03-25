@@ -19,6 +19,7 @@ public:
     uint8_t get_day();
     uint8_t get_month();
     uint16_t get_year();
+    bool is_valid();
 
     // Convert the SimpleDate to a string representation.
     std::string to_string();

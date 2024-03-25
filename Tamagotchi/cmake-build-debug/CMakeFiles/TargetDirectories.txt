@@ -1,0 +1,3 @@
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/Tamagotchi/cmake-build-debug/CMakeFiles/Tamagotchi.dir
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/Tamagotchi/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/lynn.meindertsma/Github/tech_cpp_sem2/Tamagotchi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

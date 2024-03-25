@@ -12,14 +12,12 @@
 class Cat : public Animal {
 public:
     //test
-    Cat(uint64_t tag_ID, Simple_Date date, std::string name, std::string bad_habits) : Animal(tag_ID, date, name) {
-        this->bad_habits = bad_habits;
-    }
+    Cat(uint64_t tag_ID, Simple_Date date, std::string name, std::string bad_habits);
 
-    std::string to_string() {
-        // TODO
-        return "";
-    }
+    // Getter method for bad habits
+    std::string get_bad_habits() const;
+
+    std::string to_string();
 private:
     std::string bad_habits;
 };
