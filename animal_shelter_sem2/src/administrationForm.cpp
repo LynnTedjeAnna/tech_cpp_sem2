@@ -3,6 +3,8 @@
 //
 #include "administrationForm.hpp"
 #include "animal.hpp"
+#include "cat.hpp"
+#include "dog.hpp"
 #include <iostream>
 
 // Constructor implementation
@@ -23,15 +25,15 @@ void AdministrationForm::createAnimal() {
     // Create animal object based on user input
     if (animalType == "Dog") {
         // Get user input for dog properties
-        uint64_t chipRegistrationNumber; Simple_Date dateOfBirth; std::string name; Simple_Date lastWalkDate;
+        uint64_t tag_ID; Simple_Date dateOfBirth; std::string name; Simple_Date lastWalkDate;
         // Create Dog object
-        animal = new Dog(chipRegistrationNumber, dateOfBirth, name, lastWalkDate);
+        animal = new Dog(tag_ID, dateOfBirth, name, lastWalkDate);
         std::cout << "Dog created." << std::endl;
     } else if (animalType == "Cat") {
         // Get user input for cat properties
-        uint64_t chipRegistrationNumber; Simple_Date dateOfBirth; std::string name; std::string badHabits;
+        uint64_t tag_ID; Simple_Date dateOfBirth; std::string name; std::string badHabits;
         // Create Cat object
-        animal = new Cat(chipRegistrationNumber, dateOfBirth, name, badHabits);
+        animal = new Cat(tag_ID, dateOfBirth, name, badHabits);
         std::cout << "Cat created." << std::endl;
     } else {
         std::cout << "Invalid animal type." << std::endl;

@@ -7,9 +7,9 @@
 // TODO: Modify the constructor. Make sure it initializes all properties of the class.
 
 // Constructor definition
-Dog::Dog(uint64_t chip_registration_number, Simple_Date date_of_birth,
+Dog::Dog(uint64_t tag_ID, Simple_Date date_of_birth,
          std::string name, Simple_Date last_walk_date)
-    : Animal(chip_registration_number, date_of_birth, name), last_walk_date(last_walk_date) {}
+    : Animal(tag_ID, date_of_birth, name), last_walk_date(last_walk_date) {}
 
 // Getter method for last walk date
 Simple_Date Dog::get_last_walk_date() const {

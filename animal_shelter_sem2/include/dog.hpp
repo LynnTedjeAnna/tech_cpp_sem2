@@ -11,7 +11,7 @@
 class Dog : public Animal {
 public:
     // Constructor declaration
-    Dog(uint64_t chip_registration_number, Simple_Date date_of_birth,
+    Dog(uint64_t tag_ID, Simple_Date date_of_birth,
         std::string name, Simple_Date last_walk_date);
 
     // Getter method for last walk date
